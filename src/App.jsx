@@ -60,7 +60,6 @@ function App({ token }) {
         body: null,
         method: 'GET',
         mode: 'cors',
-        credentials: 'include',
       }
     );
     const json = await res.json();
