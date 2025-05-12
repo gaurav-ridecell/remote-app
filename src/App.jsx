@@ -47,18 +47,17 @@ function App({ token }) {
       {
         headers: {
           accept: 'application/json',
-          'accept-language':
-            'en-US,en;q=0.9,de-DE;q=0.8,de;q=0.7,fr;q=0.6,es;q=0.5,it;q=0.4,en-GB;q=0.3',
+          // 'accept-language':
+          //   'en-US,en;q=0.9,de-DE;q=0.8,de;q=0.7,fr;q=0.6,es;q=0.5,it;q=0.4,en-GB;q=0.3',
           authorization: `JWT ${token}`,
 
-          'sec-fetch-mode': 'cors',
-          'sec-fetch-site': 'cross-site',
-          'x-requested-with': 'XMLHttpRequest',
+          // 'sec-fetch-mode': 'cors',
+          // 'sec-fetch-site': 'cross-site',
+          // 'x-requested-with': 'XMLHttpRequest',
         },
-        referrer: 'http://localhost:8080/',
-        referrerPolicy: 'strict-origin-when-cross-origin',
-        body: null,
-        method: 'GET',
+        // referrer: 'http://localhost:8080/',
+        // referrerPolicy: 'strict-origin-when-cross-origin',
+        // body: null,
         mode: 'cors',
       }
     );
