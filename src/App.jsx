@@ -18,15 +18,15 @@ const createRequest = token => {
   );
   xhr.setRequestHeader('authorization', `JWT ${token}`);
   // xhr.setRequestHeader('cache-control', 'no-cache');
-  xhr.setRequestHeader('pragma', 'no-cache');
-  xhr.setRequestHeader('priority', 'u=1, i');
-  xhr.setRequestHeader(
-    'sec-ch-ua',
-    '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"'
-  );
-  xhr.setRequestHeader('sec-ch-ua-mobile', '?0');
-  xhr.setRequestHeader('sec-ch-ua-platform', '"macOS"');
-  xhr.setRequestHeader('sec-fetch-dest', 'empty');
+  // xhr.setRequestHeader('pragma', 'no-cache');
+  // xhr.setRequestHeader('priority', 'u=1, i');
+  // xhr.setRequestHeader(
+  //   'sec-ch-ua',
+  //   '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"'
+  // );
+  // xhr.setRequestHeader('sec-ch-ua-mobile', '?0');
+  // xhr.setRequestHeader('sec-ch-ua-platform', '"macOS"');
+  // xhr.setRequestHeader('sec-fetch-dest', 'empty');
   xhr.setRequestHeader('sec-fetch-mode', 'cors');
   xhr.setRequestHeader('sec-fetch-site', 'cross-site');
   xhr.setRequestHeader('x-requested-with', 'XMLHttpRequest');
