@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 
-function App() {
+function App({ token }) {
   const [count, setCount] = useState(0);
   const [pokemonData, setPokemonData] = useState(null);
 
@@ -11,6 +11,20 @@ function App() {
     const response = await fetch('https://pokeapi.co/api/v2/pokemon/ditto');
     const data = await response.json();
     setPokemonData(data);
+
+    const res = await fetch(
+      'https://starflightesam-dev.ridecell.io/api/v3/rentals?page=1&page_size=25&timestamp=1747039029548&in_progress=True&optimized=true&ordering=id&role=staff',
+      {
+        headers: {
+          accept: 'application/json',
+          authorization: `JWT ${token}`,
+        },
+        credentials: 'include',
+      }
+    );
+
+    const json = await res.json();
+    console.log('Response:', json);
   };
 
   return (

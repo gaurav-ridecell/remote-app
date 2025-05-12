@@ -3,10 +3,10 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';
 
-const renderMyApp = elementId => {
+const renderMyApp = (elementId, token) => {
   createRoot(document.getElementById(elementId)).render(
     <StrictMode>
-      <App />
+      <App token={token} />
     </StrictMode>
   );
 };
