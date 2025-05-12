@@ -12,3 +12,5 @@ const renderMyApp = elementId => {
 };
 
 window.renderMyApp = renderMyApp;
+
+// renderMyApp('root');
