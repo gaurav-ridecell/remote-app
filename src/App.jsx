@@ -10,7 +10,6 @@ const createRequest = token => {
     'https://starflightesam-dev.ridecell.io/api/v3/rentals?page=1&page_size=25&timestamp=1747041001132&in_progress=True&optimized=true&ordering=id&role=staff&service=1',
     true
   );
-  xhr.withCredentials = true;
 
   xhr.setRequestHeader('accept', 'application/json');
   xhr.setRequestHeader(
