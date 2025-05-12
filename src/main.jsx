@@ -11,6 +11,6 @@ const renderMyApp = elementId => {
   );
 };
 
-window.renderMyApp = renderMyApp;
+window.mount = renderMyApp;
 
 // renderMyApp('root');
