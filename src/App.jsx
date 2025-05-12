@@ -3,42 +3,32 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 
-const createRequest = token => {
-  var xhr = new XMLHttpRequest();
-  xhr.open(
-    'GET',
-    'https://starflightesam-dev.ridecell.io/api/v3/rentals?page=1&page_size=25&timestamp=1747041001132&in_progress=True&optimized=true&ordering=id&role=staff&service=1',
-    true
-  );
+// const createRequest = token => {
+//   var xhr = new XMLHttpRequest();
+//   xhr.open(
+//     'GET',
+//     'https://starflightesam-dev.ridecell.io/api/v3/rentals?page=1&page_size=25&timestamp=1747041001132&in_progress=True&optimized=true&ordering=id&role=staff&service=1',
+//     true
+//   );
 
-  xhr.setRequestHeader('accept', 'application/json');
-  xhr.setRequestHeader(
-    'accept-language',
-    'en-US,en;q=0.9,de-DE;q=0.8,de;q=0.7,fr;q=0.6,es;q=0.5,it;q=0.4,en-GB;q=0.3'
-  );
-  xhr.setRequestHeader('authorization', `JWT ${token}`);
-  // xhr.setRequestHeader('cache-control', 'no-cache');
-  // xhr.setRequestHeader('pragma', 'no-cache');
-  // xhr.setRequestHeader('priority', 'u=1, i');
-  // xhr.setRequestHeader(
-  //   'sec-ch-ua',
-  //   '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"'
-  // );
-  // xhr.setRequestHeader('sec-ch-ua-mobile', '?0');
-  // xhr.setRequestHeader('sec-ch-ua-platform', '"macOS"');
-  // xhr.setRequestHeader('sec-fetch-dest', 'empty');
-  xhr.setRequestHeader('sec-fetch-mode', 'cors');
-  xhr.setRequestHeader('sec-fetch-site', 'cross-site');
-  xhr.setRequestHeader('x-requested-with', 'XMLHttpRequest');
+//   xhr.setRequestHeader('accept', 'application/json');
+//   xhr.setRequestHeader(
+//     'accept-language',
+//     'en-US,en;q=0.9,de-DE;q=0.8,de;q=0.7,fr;q=0.6,es;q=0.5,it;q=0.4,en-GB;q=0.3'
+//   );
+//   xhr.setRequestHeader('authorization', `JWT ${token}`);
+//   xhr.setRequestHeader('sec-fetch-mode', 'cors');
+//   xhr.setRequestHeader('sec-fetch-site', 'cross-site');
+//   xhr.setRequestHeader('x-requested-with', 'XMLHttpRequest');
 
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-      console.log(xhr.status, xhr.responseText);
-    }
-  };
+//   xhr.onreadystatechange = function () {
+//     if (xhr.readyState === 4) {
+//       console.log(xhr.status, xhr.responseText);
+//     }
+//   };
 
-  xhr.send();
-};
+//   xhr.send();
+// };
 
 function App({ token }) {
   const [count, setCount] = useState(0);
@@ -49,8 +39,32 @@ function App({ token }) {
     const data = await response.json();
     setPokemonData(data);
 
-    const res = createRequest(token);
-    console.log('Response:', res);
+    // const res = createRequest(token);
+    // console.log('Response:', res);
+
+    const res = await fetch(
+      'https://starflightesam-dev.ridecell.io/api/v3/rentals?page=1&page_size=25&timestamp=1747041001132&in_progress=True&optimized=true&ordering=id&role=staff&service=1',
+      {
+        headers: {
+          accept: 'application/json',
+          'accept-language':
+            'en-US,en;q=0.9,de-DE;q=0.8,de;q=0.7,fr;q=0.6,es;q=0.5,it;q=0.4,en-GB;q=0.3',
+          authorization: `JWT ${token}`,
+
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-site': 'cross-site',
+          'x-requested-with': 'XMLHttpRequest',
+        },
+        referrer: 'http://localhost:8080/',
+        referrerPolicy: 'strict-origin-when-cross-origin',
+        body: null,
+        method: 'GET',
+        mode: 'cors',
+        credentials: 'include',
+      }
+    );
+    const json = await res.json();
+    console.log('Response:', json);
   };
 
   return (
