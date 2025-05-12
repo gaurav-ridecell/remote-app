@@ -17,7 +17,7 @@ const createRequest = token => {
     'en-US,en;q=0.9,de-DE;q=0.8,de;q=0.7,fr;q=0.6,es;q=0.5,it;q=0.4,en-GB;q=0.3'
   );
   xhr.setRequestHeader('authorization', `JWT ${token}`);
-  xhr.setRequestHeader('cache-control', 'no-cache');
+  // xhr.setRequestHeader('cache-control', 'no-cache');
   xhr.setRequestHeader('pragma', 'no-cache');
   xhr.setRequestHeader('priority', 'u=1, i');
   xhr.setRequestHeader(
